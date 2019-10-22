@@ -1,0 +1,20 @@
+<div class="modal-content">
+  <div class="modal-header pb-2 border-bottom">
+    <button class="close" data-dismiss="modal" (click)="activeModal.close()" type="button">
+      <i class="icon-cross2 icon-2x"></i>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h2>{{a.title}}</h2>
+    <div class="d-flex justify-content-center p-3">
+      <img class="img-thumbnail" *ngFor="let item of a.thumbnail"
+        [src]="item"
+        alt="">
+
+    </div>
+    <p>{{a.content}}</p>
+
+  </div>
+  <div class="modal-body">
+  </div>
+</div>
