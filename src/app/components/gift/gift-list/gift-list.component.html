@@ -1,0 +1,261 @@
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Thumbnail</th>
+      <th>Gender</th>
+      <th>Age Ranger</th>
+      <th>Account Name</th>
+      <th>Account Id</th>
+      <th>City Name</th>
+      <th>District Name</th>
+      <th>Street Name</th>
+      <th>Category Name</th>
+      <th>Create At</th>
+      <th>Update At</th>
+      <th>Delete At</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let g of gift$ | async">
+    <tr>
+      <td>{{g.id}}</td>
+      <td>{{g.name}}</td>
+      <td>{{g.description}}</td>
+      <td><img style="max-width: 100%; height: auto" [src]="g.thumbnail[0]" alt=""></td>
+      <td>{{g.gender}}</td>
+      <td>{{g.age_range}}</td>
+      <td>{{g.accountName}}</td>
+      <td>{{g.accountId}}</td>
+      <td>{{g.cityName}}</td>
+      <td>{{g.districtName}}</td>
+      <td>{{g.streetName}}</td>
+      <td>{{g.categoryName}}</td>
+      <td>{{g.createdAt}}</td>
+      <td>{{g.updatedAt}}</td>
+      <td>{{g.deletedAt}}</td>
+      <td>{{g.email}}</td>
+      <td>
+        <div class="action-field">
+          <button class="btn btn-primary btn-sm mr-1">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="#exampleModal">
+              <i class="icon-info3"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+          <button class="btn btn-primary btn-sm mr-1">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-warning btn-sm mr-1" data-toggle="modal" data-target="#exampleModal">
+              <i class="icon-pencil5"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-user-information">
+                      <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>Programming</td>
+                      </tr>
+                      <tr>
+                        <td>Decription:</td>
+                        <td>06/23/2013</td>
+                      </tr>
+                      <tr>
+                        <td>Thumbnail</td>
+                        <td>01/24/1988</td>
+                      </tr>
+
+                      <tr>
+                      <tr>
+                        <td>Gender</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr>
+                        <td>Age Range</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Account Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Account Id</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>City Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>District Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Street Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Category Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Create At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Update At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Delete At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+
+
+          <button class="btn btn-primary btn-sm mr-1">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary btn-sm mr-1" data-toggle="modal" data-target="#exampleModal">
+              <i class=" icon-trash"></i>
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-user-information">
+                      <tbody>
+                      <tr>
+                        <td>Name:</td>
+                        <td>Programming</td>
+                      </tr>
+                      <tr>
+                        <td>Decription:</td>
+                        <td>06/23/2013</td>
+                      </tr>
+                      <tr>
+                        <td>Thumbnail</td>
+                        <td>01/24/1988</td>
+                      </tr>
+
+                      <tr>
+                      <tr>
+                        <td>Gender</td>
+                        <td>Male</td>
+                      </tr>
+                      <tr>
+                        <td>Age Range</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Account Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Account Id</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>City Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>District Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Street Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Category Name</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Create At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Update At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Delete At</td>
+                        <td>Metro Manila,Philippines</td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com">info@support.com</a></td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </button>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

@@ -27,11 +27,12 @@
               "src/assets/css/bootstrap_limitless.css",
               "src/assets/css/bootstrap.css",
               "src/assets/css/colors.css",
+              "src/assets/css/login.css",
               "src/assets/css/components.css",
               "src/assets/css/layout.css",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/css/custom-style.css"
-              
+
             ],
             "scripts": [
               "src/assets/js/libs/jquery.min.js",

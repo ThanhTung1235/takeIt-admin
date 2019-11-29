@@ -1,4 +1,6 @@
 export const environment = {
   production: true,
-  apiHost: 'https://beta-dot-assignmentcrawler.appspot.com'
+  apiHost: 'https://localhost:8080/_api/admin',
+  apiPublish: 'http://localhost:8080/api',
+  apiAuth: 'http://localhost:8080/admin/account'
 };

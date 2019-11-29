@@ -1,21 +1,26 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class BaseService {
-    constructor(
-        protected http: HttpClient
-    ) { }
-    get addRequestHeader() {
-        return this.requestHeaders();
+  constructor(
+    protected httpClient: HttpClient
+  ) {
+  }
+
+  get addRequestHeader() {
+    return this.requestHeaders();
+  }
+
+  private requestHeaders() {
+    const storage = localStorage.getItem('token');
+    let token = '';
+    if (!storage) {
+      return null;
     }
-    private requestHeaders() {
-        let storage = localStorage.getItem("token");
-        let token = '';
-        if (!storage) return null;
-        token = storage;
-        return new HttpHeaders({
-            'Authorization': 'Bearer ' + token
-        })
-    }
+    token = storage;
+    return new HttpHeaders({
+      Authorization: 'Bearer ' + token
+    });
+  }
 }

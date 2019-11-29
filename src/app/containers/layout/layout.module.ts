@@ -12,9 +12,7 @@ export const routes: Routes = [
         path: '', component: LayoutComponent,
         children: [
             { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-            { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule) },
-            { path: 'article', loadChildren: () => import('../article/article-list/article-list.module').then(m => m.ArticleListModule) },
-            { path: 'article-create', loadChildren: () => import('../article/add-article/add-article.module').then(m => m.AddArticleModule) },
+            { path: 'dashboard', loadChildren: () => import('../dashboard/dashboard.module').then(m => m.DashboardModule) }
         ]
     }
 ]
