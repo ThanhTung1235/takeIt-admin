@@ -11,16 +11,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {LoginComponent} from './containers/login/login.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     LayoutModule,
     HttpClientModule,
     NgbModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes),
     SweetAlert2Module.forRoot(),
     SharedPipeModule,
