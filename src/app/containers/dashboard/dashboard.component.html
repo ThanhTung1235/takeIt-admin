@@ -1,3 +1,54 @@
-<p>
-  dashboard works!
-</p>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Thumbnail</th>
+        <th>Account Name</th>
+        <th>Category Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let g of gift$ | async">
+        <td>{{g.id}}</td>
+        <td>{{g.name}}</td>
+        <td><img style="max-width: 100%; height: auto" [src]="g.thumbnail[0]" alt=""></td>
+        <td>{{g.accountName}}</td>
+        <td>{{g.email}}</td>
+        <td>{{g.categoryName}}</td>
+        <td>
+          <button class="btn"
+            [ngClass]="{'btn-warning': g.numberOfStatus == 0, 'btn-success': g.numberOfStatus == 1,'btn-danger': g.numberOfStatus == -1,'btn-secondary': g.numberOfStatus == 2,'btn-info': g.numberOfStatus == 3}">
+            {{g.status}}
+          </button>
+        </td>
+
+        <td>
+          <div class="action-field">
+            <button (click)="detail(g.id)" type="button" class="btn btn-warning" data-toggle="modal"
+              data-target="#exampleModal">
+              <i class="icon-info3 text-white"></i>
+            </button>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <app-gift [gift]="gift" (confirm)="confirm($event)" (delete)="delete($event)"></app-gift>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ngb-pagination class="d-flex justify-content-end p-3" [collectionSize]="pagination?.totalItems || 0"
+    [page]="pagination?.page || 5" [maxSize]="5" [pageSize]="pagination?.limit || 5" [boundaryLinks]="true"
+    (pageChange)="pageChange($event)">
+  </ngb-pagination>
+</div>

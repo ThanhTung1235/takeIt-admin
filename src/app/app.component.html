@@ -1,2 +1,6 @@
-<app-login></app-login>
-<router-outlet></router-outlet>
+<ng-template [ngIf]="showFormLogin">
+    <app-login></app-login>
+</ng-template>
+<ng-template [ngIf]="!showFormLogin">
+        <router-outlet></router-outlet>
+</ng-template>

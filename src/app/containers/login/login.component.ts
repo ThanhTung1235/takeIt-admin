@@ -24,11 +24,10 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const confirm = this.account.confirmPassword;
     const password = this.account.password;
-    // @ts-ignore
     this.accountService.login(this.account).subscribe(x => {
       if (x.status === 200) {
         const token = x.data.accessToken;
-        localStorage.setItem('_apikey', token);
+        localStorage.setItem('_token', token);
         this.route.navigate(['/dashboard']);
       } else {
         alert('login fail');

@@ -13,7 +13,7 @@ export class BaseService {
   }
 
   private requestHeaders() {
-    const storage = localStorage.getItem('token');
+    const storage = localStorage.getItem('_token');
     let token = '';
     if (!storage) {
       return null;

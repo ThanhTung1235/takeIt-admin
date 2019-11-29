@@ -1,0 +1,98 @@
+<div class="p-3">
+  <table class="table table-user-information">
+    <tbody>
+      <tr>
+        <td>Name:</td>
+        <td>{{gift?.name}}</td>
+      </tr>
+
+      <tr>
+        <td>Decription:</td>
+        <td>{{gift?.description}}</td>
+      </tr>
+
+      <tr>
+        <td>Thumbnail</td>
+        <td>
+          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img [src]="gift?.thumbnail[0]" class="d-block w-100" alt="...">
+              </div>
+              <div *ngFor="let t of thumbnail" class="carousel-item">
+                <img [src]="t" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Gender</td>
+        <td>{{gift?.gender}}</td>
+      </tr>
+
+      <tr>
+        <td>Age Range</td>
+        <td>{{gift?.age_range}}</td>
+      </tr>
+
+      <tr>
+        <td>Account Name</td>
+        <td>{{gift?.accountName}}</td>
+      </tr>
+
+      <tr>
+        <td>Account Id</td>
+        <td>{{gift?.accountId}}</td>
+      </tr>
+
+      <tr>
+        <td>City Name</td>
+        <td>{{gift?.cityName}}</td>
+      </tr>
+
+      <tr>
+        <td>District Name</td>
+        <td>{{gift?.districtName}}</td>
+      </tr>
+
+      <tr>
+        <td>Street Name</td>
+        <td>{{gift?.streetName}}</td>
+      </tr>
+
+      <tr>
+        <td>Category Name</td>
+        <td>{{gift?.categoryName}}</td>
+      </tr>
+
+      <tr>
+        <td>Create At</td>
+        <td>{{gift?.createdAt}}</td>
+      </tr>
+      <tr>
+        <td>Update At</td>
+        <td>{{gift?.updatedAt}}</td>
+      </tr>
+      <tr>
+        <td>Delete At</td>
+        <td>{{gift?.deletedAt}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{gift?.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-primary mr-3" *ngIf="gift?.numberOfStatus == 0 || gift?.numberOfStatus == -1" (click)="confirmGift(gift.id)">Duyệt bài</button>
+  <button class="btn btn-danger" (click)="confirmGift(gift.id)" (click)="deleteGift(gift.id)">Xóa bài</button>
+</div>

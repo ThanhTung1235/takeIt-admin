@@ -1,10 +1,10 @@
 import { environment } from 'src/environments/environment.prod';
 import { BaseService } from 'src/app/base.services';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
-import {ApiResult} from '../model/api-result';
-import {Gift, GiftResponse} from '../model/gift';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { ApiResult } from '../model/api-result';
+import { Gift, GiftResponse } from '../model/gift';
 
 
 // @ts-ignore
@@ -12,11 +12,10 @@ import {Gift, GiftResponse} from '../model/gift';
   providedIn: 'root'
 })
 export class GiftService extends BaseService {
-  API_URL_PUBLIC = environment.apiPublish + '/products';
-  API_URL_STAF = environment.apiPublish + '/products';
+  API_URL_STAF = 'http://localhost:8080/_api/admin/gifts';
 
 
-  search(city, district, gender, age, cate): Observable<ApiResult<GiftResponse[]>> {
+  search(city, district, gender, age, cate, page, limit, keyword): Observable<ApiResult<GiftResponse[]>> {
     if (city === undefined) {
       city = '';
     }
@@ -32,7 +31,17 @@ export class GiftService extends BaseService {
     if (cate === undefined) {
       cate = '';
     }
-    return this.httpClient.get(`${this.API_URL_PUBLIC}?city=${city}&district=${district}&gender=${gender}&age=${age}&cate=${cate}`).pipe(
+    if (page === undefined) {
+      page = "";
+    }
+    if (limit === undefined) {
+      limit = "";
+    }
+    if (keyword === undefined) {
+      keyword = "";
+    }
+    console.log("service:");
+    return this.httpClient.get(`${this.API_URL_STAF}?city=${city}&district=${district}&gender=${gender}&cate=${cate}&age=${age}&page=${page}&limit=${limit}&keyword=${keyword}`, {headers: this.addRequestHeader}).pipe(
       map(x => {
         return x as ApiResult<GiftResponse[]>;
       })
@@ -41,7 +50,7 @@ export class GiftService extends BaseService {
 
 
   saveGift(gift: Gift): Observable<ApiResult<Gift>> {
-    return this.httpClient.post(this.API_URL_PUBLIC + '/create', gift, { headers: this.addRequestHeader }).pipe(
+    return this.httpClient.post(this.API_URL_STAF + '/create', gift, { headers: this.addRequestHeader }).pipe(
       map(response => {
         return response as ApiResult<Gift>;
       })
@@ -49,34 +58,24 @@ export class GiftService extends BaseService {
   }
 
   getGift(id: number): Observable<ApiResult<GiftResponse>> {
-    return this.httpClient.get(`${this.API_URL_PUBLIC}/${id}`, { headers: this.addRequestHeader }).pipe(
+    return this.httpClient.get(`${this.API_URL_STAF}/detail/${id}`, { headers: this.addRequestHeader }).pipe(
       map(response => {
         return response as ApiResult<GiftResponse>;
       })
     );
   }
-  getList(): Observable<ApiResult<GiftResponse[]>> {
-    return this.httpClient.get(this.API_URL_PUBLIC, { headers: this.addRequestHeader }).pipe(
-      map(x => {
-        console.log(x);
-        return x as ApiResult<GiftResponse[]>;
+  delete(id: number): Observable<ApiResult<GiftResponse>> {
+    return this.httpClient.delete(`${this.API_URL_STAF}/${id}`, { headers: this.addRequestHeader }).pipe(
+      map(response => {
+        return response as ApiResult<GiftResponse>;
       })
     );
   }
-  delete(link: string): Observable<ApiResult<any>> {
-    console.log(`${this.API_URL_PUBLIC}?id=${link}`);
-    return this.httpClient.delete(`${this.API_URL_PUBLIC}?id=${link}`, { headers: this.addRequestHeader }).pipe(
+  confirm(id: number, status): Observable<ApiResult<GiftResponse>> {
+    return this.httpClient.get(`${this.API_URL_STAF}/${id}?status=${status}`, { headers: this.addRequestHeader }).pipe(
       map(response => {
-        return response as ApiResult<any>;
+        return response as ApiResult<GiftResponse>;
       })
     );
   }
-  /*update(giftRespone: GiftResponse): Observable<ApiResult<any>> {
-    return this.httpClient.put(`${this.API_URL_PUBLIC}?id=${giftRespone.link}`, giftRespone, { headers: this.addRequestHeader }).pipe(
-      map(response => {
-        return response as ApiResult<any>;
-      })
-    );
-  }*/
-
 }
