@@ -29,6 +29,9 @@ export class LoginComponent implements OnInit {
         const token = x.data.accessToken;
         localStorage.setItem('_token', token);
         this.route.navigate(['/dashboard']);
+        setInterval(function(){ 
+          window.location.reload();
+         }, 3000);
       } else {
         alert('login fail');
       }
